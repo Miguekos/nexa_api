@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "tb_area": {
+    "dataSource": "nexadb",
+    "public": true
+  },
+  "tb_gerencias": {
+    "dataSource": "nexadb",
+    "public": true
+  },
+  "tb_incidencias": {
+    "dataSource": "nexadb",
+    "public": true
+  }
+}

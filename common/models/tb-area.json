@@ -1,0 +1,25 @@
+{
+  "name": "tb_area",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "id",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "area": {
+      "type": "string"
+    },
+    "id_gerencia": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

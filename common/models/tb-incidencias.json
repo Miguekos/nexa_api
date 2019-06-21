@@ -1,0 +1,50 @@
+{
+  "name": "tb_incidencias",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "numero": {
+      "type": "number"
+    },
+    "ugb": {
+      "type": "string"
+    },
+    "area": {
+      "type": "number"
+    },
+    "local": {
+      "type": "number"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "responsable_del_registro": {
+      "type": "number"
+    },
+    "clasificacion": {
+      "type": "number"
+    },
+    "potencial_de_gravedad": {
+      "type": "number"
+    },
+    "riesgo": {
+      "type": "number"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "accion_de_bloqueo": {
+      "type": "string"
+    },
+    "generar_plan_accion": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
