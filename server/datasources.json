@@ -1,11 +1,11 @@
 {
   "nexadb": {
-    "host": "localhost",
+    "host": "127.0.0.1",
     "port": 3306,
     "url": "",
     "database": "nexa",
     "password": "",
-    "name": "nexadb",
+    "name": "mysql",
     "user": "root",
     "connector": "mysql"
   }
