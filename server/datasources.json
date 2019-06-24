@@ -5,7 +5,7 @@
     "url": "",
     "database": "nexa",
     "password": "",
-    "name": "mysql",
+    "name": "nexadb",
     "user": "root",
     "connector": "mysql"
   }

@@ -24,5 +24,13 @@
   "tb_incidencias": {
     "dataSource": "nexadb",
     "public": true
+  },
+  "tb_personal_at": {
+    "dataSource": "nexadb",
+    "public": true
+  },
+  "tb_personal_ep": {
+    "dataSource": "nexadb",
+    "public": true
   }
 }

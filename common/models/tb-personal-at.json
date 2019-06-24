@@ -1,0 +1,38 @@
+{
+  "name": "tb_personal_at",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cod" : {
+      "type" : "number"
+    },
+    "dni" : {
+      "type" : "string"
+    },
+    "trabajador" : {
+      "type" : "string"
+    },
+    "tipo" : {
+      "type" : "string"
+    },
+    "area" : {
+      "type" : "string"
+    },
+    "dpto" : {
+      "type" : "string"
+    },
+    "cargo" : {
+      "type" : "string"
+    },
+    "fi" : {
+      "type" : "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
