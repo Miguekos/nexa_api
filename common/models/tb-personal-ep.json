@@ -6,29 +6,29 @@
     "validateUpsert": true
   },
   "properties": {
-    "cod" : {
-      "type" : "number"
+    "cod": {
+      "type": "number"
     },
-    "dni" : {
-      "type" : "string"
+    "dni": {
+      "type": "string"
     },
-    "trabajador" : {
-      "type" : "string"
+    "trabajador": {
+      "type": "string"
     },
-    "tipo" : {
-      "type" : "string"
+    "tipo": {
+      "type": "string"
     },
-    "area" : {
-      "type" : "string"
+    "area": {
+      "type": "string"
     },
-    "dpto" : {
-      "type" : "string"
+    "dpto": {
+      "type": "string"
     },
-    "cargo" : {
-      "type" : "string"
+    "cargo": {
+      "type": "string"
     },
-    "fi" : {
-      "type" : "string"
+    "fi": {
+      "type": "string"
     }
   },
   "validations": [],

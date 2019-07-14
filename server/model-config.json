@@ -32,5 +32,9 @@
   "tb_personal_ep": {
     "dataSource": "nexadb",
     "public": true
+  },
+  "tb_plan_accion": {
+    "dataSource": "nexadb",
+    "public": true
   }
 }

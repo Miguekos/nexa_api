@@ -1,33 +1,39 @@
 {
-  "name": "tb_personal_at",
+  "name": "tb_plan_accion",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "cod": {
+    "id": {
       "type": "number"
     },
-    "dni": {
+    "id_incidencia": {
+      "type": "number"
+    },
+    "ugb": {
       "type": "string"
     },
-    "trabajador": {
+    "descripcion": {
       "type": "string"
     },
-    "tipo": {
+    "fecha_prevista": {
+      "type": "date"
+    },
+    "fecha_realizada": {
+      "type": "date"
+    },
+    "responsable_registro": {
       "type": "string"
     },
     "area": {
       "type": "string"
     },
-    "dpto": {
+    "observacion": {
       "type": "string"
     },
-    "cargo": {
-      "type": "string"
-    },
-    "fi": {
+    "grupo_de_tareas": {
       "type": "string"
     }
   },
