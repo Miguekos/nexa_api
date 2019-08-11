@@ -1,0 +1,28 @@
+{
+  "name": "utils",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "filtros" : {
+      "accepts" : [
+        {
+          "arg" : "data",
+          "type": "object"
+        }
+      ],
+      "http": {
+        "verb": "get"
+      },
+      "returns": {
+        "root": true
+      }
+    }
+  }
+}

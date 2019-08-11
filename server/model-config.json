@@ -36,5 +36,13 @@
   "tb_plan_accion": {
     "dataSource": "nexadb",
     "public": true
+  },
+  "tb_users": {
+    "dataSource": "nexadb",
+    "public": true
+  },
+  "utils": {
+    "dataSource": "nexadb",
+    "public": true
   }
 }

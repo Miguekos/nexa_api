@@ -1,0 +1,32 @@
+{
+  "name": "tb_users",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name" : {
+      "type" : "string"
+    },
+    "lastname" : {
+      "type" : "string"
+    },
+    "email" : {
+      "type" : "string"
+    },
+    "role" : {
+      "type" :  "number"
+    },
+    "created_at" : {
+      "type" : "date"
+    },
+    "updated_at" : {
+      "type" : "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
