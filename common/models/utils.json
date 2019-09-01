@@ -23,6 +23,20 @@
       "returns": {
         "root": true
       }
+    },
+    "dashboard" : {
+      "accepts" : [
+        {
+          "arg" : "data",
+          "type": "object"
+        }
+      ],
+      "http": {
+        "verb": "get"
+      },
+      "returns": {
+        "root": true
+      }
     }
   }
 }

@@ -61,7 +61,7 @@ module.exports = function(Utils) {
     //     // do something with err
     //   });
 
-    const main = async (arg) => {
+    const main = async () => {
       try {
         const numero = await sampleFunc(`select numero from tb_incidencias group by numero`)
         numeroArray.push(numero)
@@ -97,5 +97,49 @@ module.exports = function(Utils) {
 
     //TODO: Funcion que inicia todo el proceso
     main()
+  };
+
+  Utils.dashboard = (data, cb) => {
+    console.log(data);
+    const ds = Utils.dataSource;
+
+    const count_ugb = []
+
+    //TODO: Funcion generica para ejecutar la query async/await
+    function query_ugb(query) {
+      return new Promise(function(resolve, reject) {
+        ds.connector.query(query, function(err, units) {
+          if (err) {
+            return reject(err);
+          }
+          return resolve(units[0].ID);
+        });
+      });
+    }
+
+    const main = async (arg) => {
+      try {
+        count_ugb.push(await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 1`))
+        count_ugb.push(await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 2`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 3`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 4`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 5`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 6`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 8`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 9`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 13`))
+
+        await cb(null, count_ugb)
+        console.info('Fin Reportes');
+      } catch (e) {
+        console.warn(e)
+        cb(e, null)
+      }
+    }
+
+    main()
+
+
+
   }
 };
