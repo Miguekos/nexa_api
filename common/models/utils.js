@@ -104,6 +104,11 @@ module.exports = function(Utils) {
     const ds = Utils.dataSource;
 
     const count_ugb = []
+    const totales = []
+    const multiseries1 = []
+    const multiseries2 = []
+    const multiseries3 = []
+    const multiseries4 = []
 
     //TODO: Funcion generica para ejecutar la query async/await
     function query_ugb(query) {
@@ -117,6 +122,21 @@ module.exports = function(Utils) {
       });
     }
 
+    function multiSeriesTotal(query) {
+      return new Promise(function(resolve, reject) {
+        ds.connector.query(query, function(err, units) {
+          if (err) {
+            return reject(err);
+          }
+          try {
+            return resolve(units[0].total);
+          } catch (error) {
+            return resolve(units[0]);
+          }
+        });
+      });
+    }
+
     const main = async (arg) => {
       try {
         count_ugb.push(await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 1`))
@@ -125,11 +145,29 @@ module.exports = function(Utils) {
         count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 4`))
         count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 5`))
         count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 6`))
+        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 7`))
         count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 8`))
         count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 9`))
-        count_ugb.push( await query_ugb(`select count(*) as 'ID' from tb_incidencias where ugb = 13`))
 
-        await cb(null, count_ugb)
+        totales.push( await query_ugb(`select count(*) as 'ID' from tb_plan_accion where grupo_de_tareas = 'true'`))
+        totales.push( await query_ugb(`select count(*) as 'ID' from tb_plan_accion where grupo_de_tareas = 'false'`))
+        totales.push( await query_ugb(`select count(*) as 'ID' from tb_plan_accion where grupo_de_tareas = 'false' and fecha_prevista < '2019-09-01'`))
+
+        for (let index = 1; index < 10; index++) {
+          multiseries1.push( await multiSeriesTotal(`select clasificacion, count(clasificacion) as total from tb_incidencias where ugb = ${index} and clasificacion = 1 group by clasificacion`))
+          multiseries2.push( await multiSeriesTotal(`select clasificacion, count(clasificacion) as total from tb_incidencias where ugb = ${index} and clasificacion = 2 group by clasificacion`))
+          multiseries3.push( await multiSeriesTotal(`select clasificacion, count(clasificacion) as total from tb_incidencias where ugb = ${index} and clasificacion = 3 group by clasificacion`))
+          multiseries4.push( await multiSeriesTotal(`select clasificacion, count(clasificacion) as total from tb_incidencias where ugb = ${index} and clasificacion = 4 group by clasificacion`))
+        }
+
+        await cb(null, {
+          count_ugb,
+          totales,
+          multiseries1,
+          multiseries2,
+          multiseries3,
+          multiseries4
+        })
         console.info('Fin Reportes');
       } catch (e) {
         console.warn(e)
